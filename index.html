@@ -2,290 +2,189 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sefi Digital Studio & Creator Vaults | Official Store</title>
-  <meta name="description" content="Download battle-tested AI operating system prompts, UGC brand pitch kits, and Canva motion templates with instant digital fulfillment." />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Sefi Digital Studio | Official Creator Store & Digital Vaults</title>
+  <meta name="description" content="Instant access to 2026 AI Operating Systems, 1,000+ Prompt Vaults, UGC Brand Pitch Kits, and Canva Motion Templates." />
   <style>
     :root {
       --bg: #090d16;
       --card-bg: #111827;
       --accent: #38bdf8;
-      --accent-glow: rgba(56, 189, 248, 0.2);
+      --accent-glow: rgba(56, 189, 248, 0.15);
       --text-main: #f8fafc;
       --text-muted: #94a3b8;
       --btn-grad: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
       --card-border: #1e293b;
+      --green: #10b981;
     }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    }
-    body {
-      background-color: var(--bg);
-      color: var(--text-main);
-      line-height: 1.6;
-      padding-bottom: 60px;
-    }
-    header {
-      text-align: center;
-      padding: 60px 20px 40px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-    .badge {
-      display: inline-block;
-      background: var(--accent-glow);
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      padding: 4px 14px;
-      border-radius: 20px;
-      font-size: 13px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 20px;
-    }
-    h1 {
-      font-size: 42px;
-      font-weight: 800;
-      letter-spacing: -1px;
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
-    .subtitle {
-      font-size: 18px;
-      color: var(--text-muted);
-      max-width: 650px;
-      margin: 0 auto 30px;
-    }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      margin-bottom: 60px;
-    }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-      position: relative;
-    }
-    .card:hover {
-      transform: translateY(-4px);
-      border-color: var(--accent);
-    }
-    .card-tag {
-      font-size: 12px;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-    .card-title {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      line-height: 1.3;
-    }
-    .card-desc {
-      font-size: 14px;
-      color: var(--text-muted);
-      margin-bottom: 20px;
-    }
-    .card-features {
-      list-style: none;
-      margin-bottom: 24px;
-    }
-    .card-features li {
-      font-size: 13.5px;
-      color: #cbd5e1;
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .price-box {
-      margin-top: auto;
-      padding-top: 20px;
-      border-top: 1px solid #1e293b;
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      margin-bottom: 16px;
-    }
-    .price-val {
-      font-size: 28px;
-      font-weight: 800;
-      color: #fff;
-    }
-    .price-sub {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-    .btn {
-      display: block;
-      width: 100%;
-      text-align: center;
-      background: var(--btn-grad);
-      color: #fff;
-      text-decoration: none;
-      padding: 14px 20px;
-      border-radius: 10px;
-      font-weight: 700;
-      font-size: 15px;
-      transition: opacity 0.2s;
-      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.4);
-    }
-    .btn:hover {
-      opacity: 0.9;
-    }
-    .guarantee-box {
-      background: #0f172a;
-      border: 1px solid #1e293b;
-      border-radius: 12px;
-      padding: 30px;
-      text-align: center;
-      max-width: 800px;
-      margin: 0 auto 50px;
-    }
-    .guarantee-box h3 {
-      font-size: 18px;
-      margin-bottom: 10px;
-      color: #38bdf8;
-    }
-    .guarantee-box p {
-      font-size: 14px;
-      color: var(--text-muted);
-    }
-    footer {
-      border-top: 1px solid #1e293b;
-      padding-top: 40px;
-      text-align: center;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-    footer a {
-      color: var(--text-muted);
-      text-decoration: underline;
-      margin: 0 10px;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    body { background-color: var(--bg); color: var(--text-main); line-height: 1.5; padding: 30px 16px 60px; display: flex; justify-content: center; }
+    .store-wrapper { width: 100%; max-width: 580px; }
+    
+    /* Stan Store Creator Profile Header */
+    .profile-header { text-align: center; margin-bottom: 28px; }
+    .avatar-wrapper { width: 88px; height: 88px; margin: 0 auto 12px; border-radius: 50%; padding: 3px; background: linear-gradient(135deg, #38bdf8, #818cf8); box-shadow: 0 0 25px var(--accent-glow); }
+    .avatar-img { width: 100%; height: 100%; border-radius: 50%; background: #0f172a; display: flex; align-items: center; justify-content: center; font-size: 28px; font-weight: 800; color: #38bdf8; }
+    .creator-name { font-size: 22px; font-weight: 800; display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 4px; }
+    .verified-badge { color: #38bdf8; font-size: 18px; }
+    .creator-handle { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; font-weight: 500; }
+    .creator-bio { font-size: 14px; color: #cbd5e1; max-width: 440px; margin: 0 auto; line-height: 1.4; }
+    
+    /* Social Counter & Proof */
+    .proof-banner { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: #34d399; font-size: 12px; font-weight: 600; padding: 8px 14px; border-radius: 20px; text-align: center; margin: 16px auto 24px; display: inline-flex; align-items: center; gap: 6px; }
+    .pulse-dot { width: 8px; height: 8px; background: #34d399; border-radius: 50%; box-shadow: 0 0 8px #34d399; }
+
+    /* Stan Store Product Cards */
+    .product-list { display: flex; flex-direction: column; gap: 18px; margin-bottom: 35px; }
+    .product-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 22px; transition: all 0.2s ease; position: relative; overflow: hidden; }
+    .product-card:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.4); }
+    .tag-badge { display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 3px 8px; border-radius: 6px; margin-bottom: 10px; }
+    .tag-hot { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.4); }
+    .tag-pro { background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); }
+    .tag-design { background: rgba(168, 85, 247, 0.2); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.4); }
+    
+    .card-title { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1.3; }
+    .card-desc { font-size: 13.5px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.45; }
+    .feature-bullets { list-style: none; margin-bottom: 18px; font-size: 12.5px; color: #cbd5e1; }
+    .feature-bullets li { margin-bottom: 5px; display: flex; align-items: center; gap: 6px; }
+    
+    .card-footer { display: flex; align-items: center; justify-content: space-between; gap: 14px; border-top: 1px solid #1e293b; padding-top: 16px; }
+    .price-container { display: flex; flex-direction: column; }
+    .price-main { font-size: 22px; font-weight: 800; color: #fff; }
+    .price-type { font-size: 11px; color: var(--text-muted); }
+    
+    .buy-btn { background: var(--btn-grad); color: #fff; text-decoration: none; padding: 12px 22px; border-radius: 10px; font-weight: 700; font-size: 14px; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 4px 12px rgba(2,132,199,0.35); transition: opacity 0.15s; }
+    .buy-btn:hover { opacity: 0.92; }
+
+    /* Security & Footer */
+    .trust-footer { text-align: center; border-top: 1px solid #1e293b; padding-top: 25px; }
+    .trust-icons { font-size: 12px; color: var(--text-muted); margin-bottom: 10px; display: flex; justify-content: center; gap: 15px; }
+    .footer-copy { font-size: 12px; color: #64748b; }
   </style>
 </head>
 <body>
-
-  <header>
-    <div class="badge">Instant Digital Delivery ⚡</div>
-    <h1>Sefi Digital Studio & Creator Vaults</h1>
-    <p class="subtitle">
-      Production-grade AI prompt databases, UGC creator directories, and motion graphic assets designed for modern digital entrepreneurs.
-    </p>
-  </header>
-
-  <div class="container">
-    <div class="grid">
-
-      <!-- Product 1 -->
-      <div class="card">
-        <div>
-          <div class="card-tag">Best Seller</div>
-          <h2 class="card-title">1,000+ AI Operating System & Prompt Vault</h2>
-          <p class="card-desc">
-            Multi-agent architecture blueprints, agency workflows, and 1,000+ battle-tested prompts for Claude Code, ChatGPT, and Codex.
-          </p>
-          <ul class="card-features">
-            <li>✓ Multi-Agent Architecture Blueprints</li>
-            <li>✓ E-Commerce & Copywriting SOPs</li>
-            <li>✓ Full Notion Template + JSON Database</li>
-            <li>✓ Instant Access Delivery</li>
-          </ul>
-        </div>
-        <div>
-          <div class="price-box">
-            <div class="price-val">.00</div>
-            <div class="price-sub">One-time payment</div>
-          </div>
-          <a href="https://buy.stripe.com/aFabJ3gtJ4fk7RNeNy0Ny01" class="btn">Get Instant Access →</a>
-        </div>
+  <div class="store-wrapper">
+    
+    <!-- Profile Header (Stan Store / Beacons Style) -->
+    <header class="profile-header">
+      <div class="avatar-wrapper">
+        <div class="avatar-img">SD</div>
       </div>
-
-      <!-- Product 2 -->
-      <div class="card">
-        <div>
-          <div class="card-tag">Creator Standard</div>
-          <h2 class="card-title">2026 UGC Brand Pitch Kit & 100+ Directory</h2>
-          <p class="card-desc">
-            Direct contact directory for 100+ verified brands actively hiring creators, plus high-retention 3-part script formulas.
-          </p>
-          <ul class="card-features">
-            <li>✓ 100+ Direct Brand Contacts (Travel/Beauty/Tech)</li>
-            <li>✓ High-Retention 3-Part Hook Scripts</li>
-            <li>✓ Contract Negotiation Email Templates</li>
-            <li>✓ Notion Brand CRM Included</li>
-          </ul>
-        </div>
-        <div>
-          <div class="price-box">
-            <div class="price-val">.00</div>
-            <div class="price-sub">One-time payment</div>
-          </div>
-          <a href="https://buy.stripe.com/3cI4gB5P54fk1tpeNy0Ny02" class="btn">Get Instant Access →</a>
-        </div>
-      </div>
-
-      <!-- Product 3 -->
-      <div class="card">
-        <div>
-          <div class="card-tag">Design & Social</div>
-          <h2 class="card-title">Canva Motion & Animation Vault (150+ Templates)</h2>
-          <p class="card-desc">
-            Interactive dial spin animations, sticker peel transitions, and aesthetic reels with commercial resell rights (PLR/MRR).
-          </p>
-          <ul class="card-features">
-            <li>✓ 50 Interactive Dial Spin Animations</li>
-            <li>✓ 35 Sticker Peel Transitions</li>
-            <li>✓ 40 E-Commerce Showcase Layouts</li>
-            <li>✓ Direct Canva One-Click Links</li>
-          </ul>
-        </div>
-        <div>
-          <div class="price-box">
-            <div class="price-val">.00</div>
-            <div class="price-sub">One-time payment</div>
-          </div>
-          <a href="https://buy.stripe.com/aFadRb1yP5jo0pleNy0Ny03" class="btn">Get Instant Access →</a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="guarantee-box">
-      <h3>⚡ Instant Digital Fulfillment Guarantee</h3>
-      <p>
-        All orders are processed securely via 256-bit encrypted checkout (Stripe, Apple Pay, Google Pay). You will receive immediate direct access to your Notion templates and digital assets upon payment completion.
+      <h1 class="creator-name">
+        Sefi Digital Studio
+        <span class="verified-badge" title="Verified Official Store">✓</span>
+      </h1>
+      <div class="creator-handle">@sefidigitalstudio</div>
+      <p class="creator-bio">
+        ⚡ Production-Grade AI Operating Systems, 1,000+ Prompt Vaults & Turnkey Creator Kits with Instant Digital Fulfillment.
       </p>
-    </div>
+      <div class="proof-banner">
+        <div class="pulse-dot"></div>
+        <span>1,420+ Downloads This Week • Instant 1-Click Delivery</span>
+      </div>
+    </header>
 
-    <footer>
-      <p>© 2026 Sefi Digital Studio. All rights reserved.</p>
-      <p style="margin-top: 8px;">
-        <a href="#">Terms of Service</a> | 
-        <a href="#">Privacy Policy</a> | 
-        <a href="#">Contact: support@sefidigitalstudio.com</a>
-      </p>
+    <!-- Product Feed -->
+    <main class="product-list">
+
+      <!-- Product 1: AI Prompts -->
+      <article class="product-card">
+        <span class="tag-badge tag-hot">🔥 BEST SELLER • AI ARCHITECTURE</span>
+        <h2 class="card-title">The 2026 AI Operating System & 1,000+ Prompt Vault</h2>
+        <p class="card-desc">
+          Turnkey multi-agent code review templates, Claude Code / ChatGPT / Codex prompts, and a full plug-and-play Notion OS.
+        </p>
+        <ul class="feature-bullets">
+          <li>✓ 1,000+ Production Prompts for Developers & Creators</li>
+          <li>✓ Multi-Model Agent Orchestration Blueprints</li>
+          <li>✓ Duplicate to Notion with 1-Click</li>
+        </ul>
+        <div class="card-footer">
+          <div class="price-container">
+            <div class="price-main">.00 USD</div>
+            <div class="price-type">Instant Download</div>
+          </div>
+          <a href="https://buy.stripe.com/aFabJ3gtJ4fk7RNeNy0Ny01" class="buy-btn">Get Instant Access →</a>
+        </div>
+      </article>
+
+      <!-- Product 2: UGC Kit -->
+      <article class="product-card">
+        <span class="tag-badge tag-pro">⭐ BRAND DIRECTORY • CREATOR CRM</span>
+        <h2 class="card-title">The 2026 UGC Brand Pitch Kit & 100+ Directory</h2>
+        <p class="card-desc">
+          Direct contact emails for 100+ brands actively hiring creators, plus high-retention 3-part scripts and negotiation templates.
+        </p>
+        <ul class="feature-bullets">
+          <li>✓ 100+ Verified Direct Brand Contacts (Beauty/Tech/Travel)</li>
+          <li>✓ Viral 3-Part Hook Scripts (k/mo Agency Formula)</li>
+          <li>✓ Turnkey Notion Brand CRM Included</li>
+        </ul>
+        <div class="card-footer">
+          <div class="price-container">
+            <div class="price-main">.00 USD</div>
+            <div class="price-type">Instant Download</div>
+          </div>
+          <a href="https://buy.stripe.com/3cI4gB5P54fk1tpeNy0Ny02" class="buy-btn">Get Instant Access →</a>
+        </div>
+      </article>
+
+      <!-- Product 3: Canva Vault -->
+      <article class="product-card">
+        <span class="tag-badge tag-design">✨ DESIGN ASSETS • RESELL RIGHTS</span>
+        <h2 class="card-title">Canva Motion & Aesthetic Micro-Animation Vault</h2>
+        <p class="card-desc">
+          150+ interactive dial spin animations, sticker peel transitions, and aesthetic reels with commercial resell rights (PLR/MRR).
+        </p>
+        <ul class="feature-bullets">
+          <li>✓ 50 Interactive Dial Spin Animation Templates</li>
+          <li>✓ 35 Sticker Peel & Motion Transitions</li>
+          <li>✓ 100% Commercial Resell Rights Included</li>
+        </ul>
+        <div class="card-footer">
+          <div class="price-container">
+            <div class="price-main">.00 USD</div>
+            <div class="price-type">Instant Download</div>
+          </div>
+          <a href="https://buy.stripe.com/aFadRb1yP5jo0pleNy0Ny03" class="buy-btn">Get Instant Access →</a>
+        </div>
+      </article>
+
+      <!-- Product 4: Sefi DigitalOS SaaS -->
+      <article class="product-card" style="border-color: rgba(56,189,248,0.4);">
+        <span class="tag-badge tag-pro" style="background:rgba(56,189,248,0.25);">⚡ FLAGSHIP SAAS • AUTONOMOUS STUDIO</span>
+        <h2 class="card-title">Sefi DigitalOS Creator Studio Subscription</h2>
+        <p class="card-desc">
+          Autonomous digital product factory and programmatic multi-channel publisher with ZERO AI credit caps.
+        </p>
+        <ul class="feature-bullets">
+          <li>✓ Hands-Free Daily Auto-Posting Across 9+ Networks</li>
+          <li>✓ Unlimited Local Remotion Video Rendering (zsh Credit Fees)</li>
+          <li>✓ Native Claude Code, Cursor & MCP Agent Tools</li>
+        </ul>
+        <div class="card-footer">
+          <div class="price-container">
+            <div class="price-main">.00 USD</div>
+            <div class="price-type">per month</div>
+          </div>
+          <a href="https://buy.stripe.com/dRmeVfdhx1380pl34Q0Ny04" class="buy-btn">Start 7-Day Free Trial →</a>
+        </div>
+      </article>
+
+    </main>
+
+    <!-- Trust Footer -->
+    <footer class="trust-footer">
+      <div class="trust-icons">
+        <span>🔒 256-Bit SSL Encrypted</span>
+        <span>Pay & Google Pay Ready</span>
+        <span>⚡ 100% Instant Delivery</span>
+      </div>
+      <div class="footer-copy">
+        © 2026 Sefi Digital Studio. Powered by Stripe.
+      </div>
     </footer>
-  </div>
 
+  </div>
 </body>
 </html>
