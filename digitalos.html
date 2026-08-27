@@ -1,112 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sefi DigitalOS | Autonomous Digital Products & Social Publishing Platform</title>
-  <meta name="description" content="The all-in-one autonomous platform to create, package, and auto-publish digital products and recurring subscriptions on autopilot." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="description" content="Sefi Digital Studio is temporarily unavailable while its products and customer-delivery process are independently verified.">
+  <title>Sefi Digital Studio | Temporarily Unavailable</title>
   <style>
-    :root { --bg: #090d16; --card: #111827; --accent: #38bdf8; --accent-glow: rgba(56,189,248,0.2); --text: #f8fafc; --muted: #94a3b8; }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-    body { background: var(--bg); color: var(--text); line-height: 1.6; padding: 60px 20px; }
-    .container { max-width: 960px; margin: 0 auto; }
-    header { text-align: center; margin-bottom: 50px; }
-    .badge { display: inline-block; background: var(--accent-glow); color: var(--accent); border: 1px solid var(--accent); padding: 6px 16px; border-radius: 20px; font-size: 13px; font-weight: 700; text-transform: uppercase; margin-bottom: 20px; }
-    h1 { font-size: 44px; font-weight: 800; line-height: 1.15; margin-bottom: 20px; letter-spacing: -1px; }
-    p.sub { font-size: 19px; color: var(--muted); max-width: 720px; margin: 0 auto 30px; }
-    .grid-pricing { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; margin-bottom: 50px; }
-    .card-price { background: var(--card); border: 1px solid #1e293b; border-radius: 16px; padding: 36px; display: flex; flex-direction: column; justify-content: space-between; }
-    .card-price.featured { border-color: var(--accent); box-shadow: 0 0 30px var(--accent-glow); }
-    .price-num { font-size: 42px; font-weight: 800; color: #fff; margin: 20px 0 10px; }
-    ul.feat { list-style: none; margin: 24px 0; }
-    ul.feat li { font-size: 14.5px; color: #cbd5e1; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-    .btn { display: block; width: 100%; text-align: center; background: linear-gradient(135deg, #0284c7, #0369a1); color: #fff; text-decoration: none; padding: 16px; border-radius: 10px; font-weight: 700; font-size: 16px; box-shadow: 0 4px 14px rgba(2,132,199,0.4); margin-top: 20px; }
-    table { width: 100%; border-collapse: collapse; margin: 40px 0; background: var(--card); border-radius: 12px; overflow: hidden; border: 1px solid #1e293b; }
-    th, td { padding: 16px 20px; text-align: left; border-bottom: 1px solid #1e293b; font-size: 14px; }
-    th { background: #0f172a; color: #fff; font-weight: 700; }
-    .highlight { color: #38bdf8; font-weight: 700; }
+    :root {
+      color-scheme: dark;
+      --background: #07111f;
+      --panel: #0f1d30;
+      --border: #29415e;
+      --text: #f4f8fc;
+      --muted: #b6c5d8;
+      --accent: #71d0ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at top, #123052 0, transparent 42%),
+        var(--background);
+      color: var(--text);
+      font: 16px/1.6 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(680px, 100%);
+      padding: clamp(28px, 7vw, 56px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: color-mix(in srgb, var(--panel) 94%, transparent);
+      box-shadow: 0 24px 70px rgb(0 0 0 / 28%);
+    }
+
+    .status {
+      margin: 0 0 16px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 16ch;
+      margin: 0 0 20px;
+      font-size: clamp(2rem, 7vw, 4rem);
+      line-height: 1.04;
+      letter-spacing: -0.045em;
+    }
+
+    p { margin: 0; color: var(--muted); }
+    p + p { margin-top: 16px; }
+
+    .notice {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="badge">100% Autonomous Studio ⚡</div>
-      <h1>Sefi DigitalOS: The Complete Digital Products & Auto-Publishing Studio</h1>
-      <p class="sub">Create, package, and auto-publish viral reels, prompt vaults, and recurring digital subscriptions across 9+ social networks completely on autopilot.</p>
-    </header>
-
-    <div class="grid-pricing">
-      <div class="card-price featured">
-        <div>
-          <span style="color:var(--accent); font-size:13px; font-weight:700; text-transform:uppercase;">Creator Studio</span>
-          <h2 style="font-size:24px; margin-top:8px;">Solo Founder & Creator</h2>
-          <div class="price-num"> <span style="font-size:16px; color:var(--muted); font-weight:normal;">/ month</span></div>
-          <p style="color:var(--muted); font-size:14px;">Everything you need to automate digital product sales and auto-post across all social channels.</p>
-          <ul class="feat">
-            <li>✓ <strong>100% Autonomous Auto-Posting:</strong> Instagram, TikTok, YouTube & Facebook</li>
-            <li>✓ <strong>Unlimited</strong> Digital Product Vaults & Video Motion Rendering (zsh credit fees)</li>
-            <li>✓ <strong>Instant Stripe DM Webhooks:</strong> Keyword comments trigger direct checkouts</li>
-            <li>✓ <strong>Native AI Agent Connector:</strong> Full Claude Code, Cursor & MCP integration</li>
-          </ul>
-        </div>
-        <a href="https://buy.stripe.com/aFabJ3gtJ4fk7RNeNy0Ny01" class="btn">Start 7-Day Free Trial (/mo) →</a>
-      </div>
-
-      <div class="card-price">
-        <div>
-          <span style="color:#a855f7; font-size:13px; font-weight:700; text-transform:uppercase;">Agency Scale</span>
-          <h2 style="font-size:24px; margin-top:8px;">Agency & High-Volume</h2>
-          <div class="price-num"> <span style="font-size:16px; color:var(--muted); font-weight:normal;">/ month</span></div>
-          <p style="color:var(--muted); font-size:14px;">For digital agencies managing multiple client brands, products, and recurring subscriptions.</p>
-          <ul class="feat">
-            <li>✓ 30 Connected Social Accounts & Multi-Brand Workspaces</li>
-            <li>✓ Unlimited High-Volume Automated Video Rendering</li>
-            <li>✓ Priority API Gateway & Dedicated Webhook Router</li>
-            <li>✓ White-Label Client Analytics & Revenue Reporting</li>
-            <li>✓ 24/7 Dedicated Priority Technical Support</li>
-          </ul>
-        </div>
-        <a href="https://buy.stripe.com/aFabJ3gtJ4fk7RNeNy0Ny01" class="btn" style="background:linear-gradient(135deg,#9333ea,#7e22ce);">Start Agency Trial (/mo) →</a>
-      </div>
-    </div>
-
-    <h3 style="font-size:24px; text-align:center; margin-bottom:20px;">Why Creators Choose Sefi DigitalOS:</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Capability</th>
-          <th>Legacy Schedulers (Buffer)</th>
-          <th>AI Publishers (Blotato)</th>
-          <th>Sefi DigitalOS</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Autonomous Social Auto-Posting</strong></td>
-          <td>Manual Drag & Drop</td>
-          <td>Basic Queue</td>
-          <td><span class="highlight">✅ 100% Hands-Free Daily Auto-Pilot</span></td>
-        </tr>
-        <tr>
-          <td><strong>Digital Products & Stripe Checkouts</strong></td>
-          <td>❌ None</td>
-          <td>❌ None</td>
-          <td><span class="highlight">✅ Built-in Instant Vault Delivery</span></td>
-        </tr>
-        <tr>
-          <td><strong>Video & Motion Generation</strong></td>
-          <td>❌ None</td>
-          <td>⚠️ Strict Credit Caps</td>
-          <td><span class="highlight">✅ Unlimited Local Remotion Video (zsh)</span></td>
-        </tr>
-        <tr>
-          <td><strong>Monthly Pricing</strong></td>
-          <td> per channel / mo</td>
-          <td> –  / mo</td>
-          <td><span class="highlight"><strong> / mo (Flat & Unlimited)</strong></span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <main aria-labelledby="page-title">
+    <p class="status">Customer safety review</p>
+    <h1 id="page-title">Sefi Digital Studio is temporarily unavailable.</h1>
+    <p>We are verifying each product, customer promise, and delivery step before making anything available.</p>
+    <p class="notice">No products are currently offered for sale, and this site will not request payment.</p>
+  </main>
 </body>
 </html>

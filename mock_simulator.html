@@ -1,232 +1,85 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sefi Digital Studio — Interactive End-to-End Simulation (zsh Test Mode)</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="description" content="Sefi Digital Studio is temporarily unavailable while its products and customer-delivery process are independently verified.">
+  <title>Sefi Digital Studio | Temporarily Unavailable</title>
   <style>
     :root {
-      --bg: #090d16;
-      --card: #111827;
-      --accent: #38bdf8;
-      --accent-purple: #a855f7;
-      --accent-pink: #ec4899;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --success: #10b981;
+      color-scheme: dark;
+      --background: #07111f;
+      --panel: #0f1d30;
+      --border: #29415e;
+      --text: #f4f8fc;
+      --muted: #b6c5d8;
+      --accent: #71d0ff;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-    body { background: var(--bg); color: var(--text); padding: 40px 20px; line-height: 1.5; }
-    .container { max-width: 1080px; margin: 0 auto; }
-    .header-bar { text-align: center; margin-bottom: 30px; }
-    .badge { display: inline-block; background: rgba(56,189,248,0.15); color: var(--accent); border: 1px solid var(--accent); padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 700; text-transform: uppercase; margin-bottom: 12px; }
-    h1 { font-size: 32px; font-weight: 800; margin-bottom: 8px; letter-spacing: -0.5px; }
-    p.sub { color: var(--muted); font-size: 16px; margin-bottom: 25px; }
-    
-    /* Stepper Navigation */
-    .stepper { display: flex; gap: 10px; margin-bottom: 30px; border-bottom: 1px solid #1e293b; padding-bottom: 15px; }
-    .step-btn { flex: 1; background: var(--card); border: 1px solid #1e293b; color: var(--muted); padding: 14px; border-radius: 10px; text-align: left; cursor: pointer; transition: all 0.2s; font-size: 14px; font-weight: 600; }
-    .step-btn.active { border-color: var(--accent); color: #fff; background: rgba(56,189,248,0.08); box-shadow: 0 0 15px rgba(56,189,248,0.15); }
-    .step-num { color: var(--accent); font-size: 11px; text-transform: uppercase; display: block; margin-bottom: 2px; }
-    
-    /* Content Sections */
-    .sim-panel { display: none; background: var(--card); border: 1px solid #1e293b; border-radius: 16px; padding: 30px; }
-    .sim-panel.active { display: block; animation: fadeIn 0.3s ease-in-out; }
-    
-    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-    /* Interactive Mock Instagram / TikTok Feed */
-    .mock-post-card { display: flex; gap: 30px; flex-wrap: wrap; }
-    .mock-media-box { flex: 1; min-width: 320px; background: #030712; border-radius: 14px; border: 1px solid #1e293b; overflow: hidden; }
-    .mock-post-header { padding: 14px 18px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #1e293b; }
-    .avatar-circle { width: 38px; height: 38px; border-radius: 50%; background: #0284c7; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #fff; font-size: 14px; }
-    .mock-post-img { width: 100%; height: 380px; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 25px; text-align: center; border-bottom: 1px solid #1e293b; }
-    .mock-post-body { padding: 18px; font-size: 13.5px; color: #cbd5e1; }
-    
-    .mock-interactive-box { flex: 1; min-width: 320px; display: flex; flex-direction: column; justify-content: space-between; }
-    .comment-input-row { display: flex; gap: 10px; margin-top: 15px; }
-    input.comment-field { flex: 1; background: #0b1120; border: 1px solid #334155; padding: 14px; border-radius: 8px; color: #fff; font-size: 14px; outline: none; }
-    button.btn-primary { background: linear-gradient(135deg, #0284c7, #0369a1); color: #fff; border: none; padding: 14px 24px; border-radius: 8px; font-weight: 700; cursor: pointer; }
-    
-    /* DM Pop-up Simulation */
-    .dm-bubble { background: #1e293b; border-radius: 12px; padding: 16px; margin: 15px 0; border-left: 4px solid var(--accent); }
-    .dm-bubble p { font-size: 14px; color: #f1f5f9; margin-bottom: 8px; }
-    
-    /* Mock Checkout */
-    .checkout-box { max-width: 480px; margin: 0 auto; background: #0f172a; border: 1px solid #334155; border-radius: 16px; padding: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-    .checkout-title { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #1e293b; padding-bottom: 15px; margin-bottom: 20px; }
-    .apple-pay-btn { width: 100%; background: #000; color: #fff; border: 1px solid #334155; padding: 15px; border-radius: 8px; font-weight: 700; font-size: 16px; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 15px; }
-    
-    /* Vault Delivery */
-    .vault-box { background: rgba(16,185,129,0.08); border: 1px solid var(--success); border-radius: 12px; padding: 25px; margin-top: 20px; }
-    .resource-list { list-style: none; margin-top: 15px; }
-    .resource-list li { background: #0f172a; padding: 14px 18px; border-radius: 8px; border: 1px solid #1e293b; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; }
+    * { box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      background:
+        radial-gradient(circle at top, #123052 0, transparent 42%),
+        var(--background);
+      color: var(--text);
+      font: 16px/1.6 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(680px, 100%);
+      padding: clamp(28px, 7vw, 56px);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      background: color-mix(in srgb, var(--panel) 94%, transparent);
+      box-shadow: 0 24px 70px rgb(0 0 0 / 28%);
+    }
+
+    .status {
+      margin: 0 0 16px;
+      color: var(--accent);
+      font-size: 0.78rem;
+      font-weight: 750;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 16ch;
+      margin: 0 0 20px;
+      font-size: clamp(2rem, 7vw, 4rem);
+      line-height: 1.04;
+      letter-spacing: -0.045em;
+    }
+
+    p { margin: 0; color: var(--muted); }
+    p + p { margin-top: 16px; }
+
+    .notice {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="header-bar">
-      <div class="badge">100% Free Sandbox Testing Mode ⚡</div>
-      <h1>Sefi Digital Studio — End-to-End Simulation</h1>
-      <p class="sub">Test the entire customer journey: from viral reel hook, to automated keyword DM, to zsh simulated checkout, and instant product vault delivery.</p>
-    </div>
-
-    <div class="stepper">
-      <button class="step-btn active" onclick="showStep(1)">
-        <span class="step-num">Step 01</span>
-        Viral Post & Comment Trigger
-      </button>
-      <button class="step-btn" onclick="showStep(2)">
-        <span class="step-num">Step 02</span>
-        Instant Automated DM
-      </button>
-      <button class="step-btn" onclick="showStep(3)">
-        <span class="step-num">Step 03</span>
-        1-Click Stripe Checkout (zsh Test)
-      </button>
-      <button class="step-btn" onclick="showStep(4)">
-        <span class="step-num">Step 04</span>
-        Instant Vault Access & Delivery
-      </button>
-    </div>
-
-    <!-- STEP 1: SOCIAL POST VIEW -->
-    <div id="step1" class="sim-panel active">
-      <h2 style="font-size:20px; margin-bottom:15px;">Step 1: Viewer Discovers Viral Post on Instagram / TikTok</h2>
-      <div class="mock-post-card">
-        <div class="mock-media-box">
-          <div class="mock-post-header">
-            <div class="avatar-circle">SD</div>
-            <div>
-              <strong>sefidigitalstudio</strong>
-              <div style="font-size:11px; color:var(--muted);">Sponsored • AI Operating Systems</div>
-            </div>
-          </div>
-          <div class="mock-post-img">
-            <span style="background:#0284c7; color:#fff; padding:4px 12px; border-radius:12px; font-size:12px; font-weight:700; margin-bottom:15px;">AI ARCHITECTURE 2026</span>
-            <h3 style="font-size:22px; margin-bottom:12px;">Stop Using ChatGPT<br>Like A Search Engine.</h3>
-            <p style="color:#94a3b8; font-size:13px;">⚡ Multi-agent frameworks deploy code automatically<br>⚡ 1,000+ Production Prompts & Blueprints<br>⚡ Turnkey Notion Database</p>
-          </div>
-          <div class="mock-post-body">
-            <strong>sefidigitalstudio</strong> In 2026, top software engineers run multi-agent operating systems. We packaged our full blueprints into a plug-and-play Notion database.<br><br>
-            <strong>👇 Comment "CLAUDE" below and I will DM you the instant access link!</strong>
-          </div>
-        </div>
-
-        <div class="mock-interactive-box">
-          <div style="background:#0f172a; padding:20px; border-radius:12px; border:1px solid #1e293b;">
-            <h3 style="font-size:16px; margin-bottom:10px;">🧪 Test the Trigger in Real-Time:</h3>
-            <p style="color:var(--muted); font-size:13px;">Type <strong>CLAUDE</strong>, <strong>UGC</strong>, or <strong>SPIN</strong> below to test how the automated DM engine responds:</p>
-            <div class="comment-input-row">
-              <input type="text" id="commentInput" class="comment-field" placeholder="Type CLAUDE..." value="CLAUDE" />
-              <button class="btn-primary" onclick="triggerComment()">Post Comment 🚀</button>
-            </div>
-            <div id="commentFeed" style="margin-top:15px; font-size:13px;"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- STEP 2: AUTOMATED DM VIEW -->
-    <div id="step2" class="sim-panel">
-      <h2 style="font-size:20px; margin-bottom:15px;">Step 2: Automated DM Delivered to Customer (Within 2 Seconds)</h2>
-      <div style="max-width:540px; margin:0 auto;">
-        <div style="display:flex; align-items:center; gap:12px; margin-bottom:15px;">
-          <div class="avatar-circle">SD</div>
-          <div>
-            <strong>Sefi Digital Studio (@sefidigitalstudio)</strong>
-            <div style="font-size:11px; color:#10b981;">● Active Now (Automated Bot Response)</div>
-          </div>
-        </div>
-        <div class="dm-bubble">
-          <p>Hey! 👋 Thanks for commenting on <strong>Sefi Digital Studio</strong>.</p>
-          <p>Here is your instant 1-click access link to <strong>The 2026 AI Operating System & 1,000+ Prompt Vault</strong>:</p>
-          <p style="margin-top:12px;">
-            <a href="#" onclick="showStep(3); return false;" style="display:inline-block; background:#0284c7; color:#fff; padding:10px 18px; border-radius:8px; text-decoration:none; font-weight:700;">Open Official Stripe Checkout () →</a>
-          </p>
-        </div>
-        <button class="btn-primary" style="width:100%; margin-top:15px;" onclick="showStep(3)">Proceed to Simulated Stripe Checkout →</button>
-      </div>
-    </div>
-
-    <!-- STEP 3: MOCK STRIPE CHECKOUT -->
-    <div id="step3" class="sim-panel">
-      <h2 style="font-size:20px; text-align:center; margin-bottom:20px;">Step 3: Official Stripe Checkout (100% Brand Safe Sandbox)</h2>
-      <div class="checkout-box">
-        <div class="checkout-title">
-          <div>
-            <div style="font-size:12px; color:var(--muted);">PAY TO</div>
-            <strong style="color:#38bdf8;">Sefi Digital Studio</strong>
-          </div>
-          <div style="text-align:right;">
-            <div style="font-size:12px; color:var(--muted);">TOTAL</div>
-            <strong style="font-size:20px;">.00</strong>
-          </div>
-        </div>
-
-        <button class="apple-pay-btn" onclick="simulateSuccess()">
-          <span>Pay</span> (Simulate 1-Click Payment zsh)
-        </button>
-
-        <div style="text-align:center; color:var(--muted); font-size:12px; margin:15px 0;">OR PAY WITH CARD (SANDBOX)</div>
-        
-        <input type="text" class="comment-field" style="width:100%; margin-bottom:10px;" placeholder="Email: customer@example.com" value="test-buyer@gmail.com" />
-        <input type="text" class="comment-field" style="width:100%; margin-bottom:10px;" placeholder="Card: 4242 4242 4242 4242" value="4242 •••• •••• 4242" />
-        
-        <button class="btn-primary" style="width:100%; margin-top:10px;" onclick="simulateSuccess()">Complete Test Purchase (zsh Sandbox) →</button>
-      </div>
-    </div>
-
-    <!-- STEP 4: INSTANT VAULT DELIVERY -->
-    <div id="step4" class="sim-panel">
-      <div style="text-align:center; margin-bottom:20px;">
-        <div style="display:inline-block; background:rgba(16,185,129,0.2); color:#10b981; border:1px solid #10b981; width:60px; height:60px; border-radius:50%; line-height:60px; font-size:28px; margin-bottom:10px;">✓</div>
-        <h2 style="font-size:26px; font-weight:800;">Order #SD-2026-9481 Confirmed!</h2>
-        <p style="color:var(--muted); font-size:14px;">Thank you! Your direct deposit of .00 has been routed to Sefi Digital Studio's bank account.</p>
-      </div>
-
-      <div class="vault-box">
-        <h3 style="color:#10b981; margin-bottom:10px;">📦 Unlocked Product Vault Contents:</h3>
-        <ul class="resource-list">
-          <li>
-            <div>
-              <strong>The 2026 AI Operating System (Notion Template)</strong>
-              <div style="font-size:12px; color:var(--muted);">Includes tri-model multi-agent code reviewer blueprints</div>
-            </div>
-            <a href="#" onclick="alert('Simulated Duplicate Link: Notion Template Opened in Read/Duplicate Mode!'); return false;" style="background:#0284c7; color:#fff; padding:8px 14px; border-radius:6px; text-decoration:none; font-size:13px; font-weight:600;">Duplicate to Notion ⚡</a>
-          </li>
-          <li>
-            <div>
-              <strong>1,000+ Production Prompts (JSON / Markdown Library)</strong>
-              <div style="font-size:12px; color:var(--muted);">Prompt engineering templates for Claude Code, Codex & ChatGPT</div>
-            </div>
-            <a href="#" onclick="alert('Simulated Download: Prompt Library ZIP downloaded!'); return false;" style="background:#1e293b; border:1px solid #334155; color:#fff; padding:8px 14px; border-radius:6px; text-decoration:none; font-size:13px;">Download Library (.zip)</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function showStep(stepNum) {
-      document.querySelectorAll('.step-btn').forEach((btn, idx) => {
-        btn.classList.toggle('active', idx + 1 === stepNum);
-      });
-      document.querySelectorAll('.sim-panel').forEach((panel, idx) => {
-        panel.classList.toggle('active', idx + 1 === stepNum);
-      });
-    }
-
-    function triggerComment() {
-      const val = document.getElementById('commentInput').value.trim();
-      const feed = document.getElementById('commentFeed');
-      feed.innerHTML = '<div style="color:#38bdf8; margin-top:8px;">✓ Comment posted: "' + val + '"<br>⚡ Automated DM triggered instantly! Moving to Step 2...</div>';
-      setTimeout(() => { showStep(2); }, 1000);
-    }
-
-    function simulateSuccess() {
-      showStep(4);
-    }
-  </script>
+  <main aria-labelledby="page-title">
+    <p class="status">Customer safety review</p>
+    <h1 id="page-title">Sefi Digital Studio is temporarily unavailable.</h1>
+    <p>We are verifying each product, customer promise, and delivery step before making anything available.</p>
+    <p class="notice">No products are currently offered for sale, and this site will not request payment.</p>
+  </main>
 </body>
 </html>
