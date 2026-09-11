@@ -4,9 +4,10 @@ The public storefront is intentionally fail-closed while product claims,
 customer policies, checkout mapping, fulfillment, support, and evidence are
 verified.
 
-No product, subscription, trial, checkout, payment link, analytics tag, or
-customer notification is active in this repository. Every historical HTML
-route serves the same neutral maintenance page. Git history preserves the
+Every historical product route remains fail-closed. During the bounded
+Creation Proof validation, `creation-proof.html` is the only permitted active
+product page; it must contain exactly one Stripe payment link, truthful claims,
+no analytics, and no interactive data collection. Git history preserves the
 previous public surface for audit purposes.
 
 Run the containment gate with:
